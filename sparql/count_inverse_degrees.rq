@@ -1,0 +1,34 @@
+SELECT ?stype ?p ?otype
+       (xsd:decimal(?totalEdges) / ?nInstances AS ?avgInvDegree)
+       ?totalEdges ?nInstances
+
+WHERE {
+  
+  # total outgoing edges per (type, predicate, object type)
+  {
+    SELECT ?stype ?p ?otype (COUNT(*) AS ?totalEdges)
+    WHERE {
+      # select unique triples first
+      {
+        SELECT DISTINCT ?s ?p ?o ?stype ?otype
+        WHERE {
+          ?s ?p ?o .
+          ?s rdf:type ?stype .
+          ?o rdf:type ?otype .
+        }
+      }
+    }
+    GROUP BY ?stype ?p ?otype
+  }
+
+  # number of instances per type
+  {
+    SELECT ?otype (COUNT(DISTINCT ?o) AS ?nInstances)
+    WHERE {
+      ?o rdf:type ?otype .
+    }
+    GROUP BY ?otype
+  }
+
+}
+ORDER BY ?otype DESC(?avgInvDegree)

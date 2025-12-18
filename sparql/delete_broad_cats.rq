@@ -1,0 +1,22 @@
+PREFIX sct: <http://snomed.info/id/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+
+# we remove triples containing the very broad terms "disease" and "adverse event".
+# ziekte = 64572001
+# ade = 281647001
+
+DELETE {
+  ?s ?p ?o .
+}
+WHERE {
+  {
+    sct:64572001 ?p ?o .
+    BIND(sct:64572001 AS ?s)
+  }
+  UNION
+  {
+    ?s ?p sct:64572001 .
+    BIND(sct:64572001 AS ?o)
+  }
+  FILTER (?p != rdfs:subClassOf)
+}
