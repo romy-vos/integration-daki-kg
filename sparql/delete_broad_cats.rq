@@ -1,22 +1,48 @@
 PREFIX sct: <http://snomed.info/id/>
 PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
 
-# we remove triples containing the very broad terms "disease" and "adverse event".
-# ziekte = 64572001
-# ade = 281647001
+# Delete the generic terms "disease" (64572001) and "adverse event" (281647001) as those never serve as valuable (contra)indications or side effects.
+# We ensure to delete the nested terms as well (in rdf-star style).
 
 DELETE {
-  ?s ?p ?o .
+  GRAPH <http://example.org/intrinsic_drug_properties> {
+    ?s ?p ?o .
+  }
 }
+
 WHERE {
-  {
-    sct:64572001 ?p ?o .
-    BIND(sct:64572001 AS ?s)
+  GRAPH <http://example.org/intrinsic_drug_properties> {
+    
+    VALUES ?target { sct:64572001 sct:281647001 }
+
+    {
+      # main s or o
+      ?s ?p ?o .
+      FILTER(?s = ?target || ?o = ?target)
+    }
+    UNION
+    {
+      # << ?s2 ?p2 ?target >> ?p ?o
+      << ?s_inner ?p_inner ?target >> ?p ?o .
+      BIND(<< ?s_inner ?p_inner ?target >> AS ?s)
+    }
+    UNION
+    {
+      # << ?target ?p2 ?o2 >> ?p ?o
+      << ?target ?p_inner ?o_inner >> ?p ?o .
+      BIND(<< ?target ?p_inner ?o_inner >> AS ?s)
+    }
+    UNION
+    {
+      # ?s ?p << ?s2 ?p2 ?target >>
+      ?s ?p << ?s_inner ?p_inner ?target >> .
+      BIND(<< ?s_inner ?p_inner ?target >> AS ?o)
+    }
+    UNION
+    {
+      # ?s ?p << ?target ?p2 ?o2 >>
+      ?s ?p << ?target ?p_inner ?o_inner >> .
+      BIND(<< ?target ?p_inner ?o_inner >> AS ?o)
+    }
   }
-  UNION
-  {
-    ?s ?p sct:64572001 .
-    BIND(sct:64572001 AS ?o)
-  }
-  FILTER (?p != rdfs:subClassOf)
 }
