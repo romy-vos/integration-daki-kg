@@ -1,0 +1,11 @@
+# pretty print for export
+
+CONSTRUCT {
+  ?s ?p ?o .
+}
+WHERE {
+    GRAPH <http://example.org/intrinsic_drug_properties> {
+  ?s ?p ?o .
+  }
+}
+ORDER BY ?s ?p ?o
