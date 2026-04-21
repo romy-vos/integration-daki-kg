@@ -1,0 +1,13 @@
+CQ	total GS	total OOS	v0	v1	v2
+1. Which drugs for the treatment of diabetes have AKI as a side-effect?	5	0	0	0	4
+2. Which drugs for the treatment of diabetes do not have AKI as a side- effect?	5	0	5	5	4
+3. Which drugs for the treatment of heart failure have AKI as a side-effect?	5	0	0	0	4
+4. Which drugs interact with tacrolimus compromising kidney safety (nephro-DDIs)?	5	0	5	5	5
+5. Which drugs interact with aciclovir compromising kidney safety (nephro-DDIs)?	3	1	2	2	2
+6. Which drugs interact with aciclovir (any DDI)?	2	1	1	1	1
+7. Which antibiotic(s) to treat sepsis has/have the lowest frequency of AKI as a side-effect?	5	3	2	2	2
+8. Which drugs for the treatment of diabetes are contra-indicated in patients with CKD?	7	2	0	0	5
+9. Which drug-drug interactions may occur when prescribing naproxen, furosemide and enalapril concomitantly?	3	0	3	3	3
+10. Which side-effects may occur when prescribing naproxen, furosemide and enalapril concomitantly?	6	0	0	3	3
+11. Which side-effects are very frequent (> 10%) for lithium?	4	0	3	3	3
+12. Which drug-drug interactions are known for methotrexate?	5	0	5	5	5

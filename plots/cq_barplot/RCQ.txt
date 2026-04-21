@@ -1,0 +1,13 @@
+CQ	total GS	total OOS	v0	v1	v2
+1. Which drugs with AKI as side-effect are indicated for the treatment of diabetes?*	5	0	0	0	4
+2. Which drugs with AKI as side-effect are indicated for the treatment of heart failure?**	5	0	0	0	4
+3. Which drugs with AKI as side-effect are indicated for the treatment of hypertension?	7	0	0	0	5
+4. Which drugs with AKI as side-effect are contra-indicated in patients with CKD?	8	3	0	0	2
+5. Which drugs with AKI as side-effect are contra-indicated in heart failure?	5	0	0	2	5
+6. Which drugs with AKI as side-effect are contra-indicated in liverinsufficiency?	7	2	0	1	3
+7. Which drugs with AKI as side-effect have hypotension as a side-effect?	5	0	1	1	5
+8. Which drugs with AKI as side-effect have hypo- or hyperglacemia (verhoogde/verlaagde glucosespiegel, hypo- hyperglykemie) as a side-effect?	5	0	0	1	4
+9. Which drugs with AKI as side-effect have hypovolemia (hypovolemie, dehydratie) as a side-effect?	5	0	0	1	4
+10. Which drugs with AKI as side-effect have sepsis as a side-effect?	5	0	0	0	3
+11. I am studying the association between metamizol and AKI, which AKI risk factors should I consider? (here we are looking for conditon for which metamizol is prescribed and these condition are also AKI riskfactors)	3	3	N/A	N/A	0
+12. I am studying the association between vancomycin and AKI, which AKI risk factors should I consider?  (here we are looking for conditon for which vancomycine is prescribed and these condition are also AKI riskfactors)	2	1	N/A	N/A	1
